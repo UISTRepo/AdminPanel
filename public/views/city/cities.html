@@ -1,0 +1,62 @@
+<div>
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 text-center"><h3>Cities</h3></div>
+        <div class="col-md-4 text-right">
+            <h3>
+                <button class="btn btn-primary" ng-click="visible=!visible">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+            </h3>
+        </div>
+    </div>
+    <div ng-show="visible">
+        <hr/>
+        <form class="form-horizontal" role="form" name="cityForm" ng-submit="newCity()">
+            <div class="form-group">
+                <label for="title" class="col-sm-3 control-label">Add new</label>
+                <div class="col-sm-6">
+                    <input required ng-model="data.name" type="text" class="form-control"
+                           id="title" placeholder="" ng-minlength="3" ng-maxlength="20">
+                </div>
+                <div class="col-md-3">
+                    <button ng-disabled="cityForm.$invalid || cityForm.$pristine"
+                            type="submit" class="btn btn-info">Save</button>
+                </div>
+            </div>
+        </form>
+        <hr/>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-xs-9">
+            <label for="searchCity" class="col-xs-2 control-label">Search</label>
+            <input ng-model="query" type="text" name="searchCity" class="form-control" id="searchCity" placeholder="">
+        </div>
+        <div class="col-xs-3">
+            <label class="control-label" for="">Display</label>
+            <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">List of Cities</div>
+        <ul class="list-group projectList">
+            <li class="list-group-item"
+                dir-paginate="city in cities | filter: query | itemsPerPage: pageSize" current-page="currentPage">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h4><%city.name%></h4>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button confirmed-click="deleteCity(city.id)" ng-confirm-click
+                                class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--<div class="text-center">-->
+        <!--<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"-->
+                                 <!--template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html">-->
+        <!--</dir-pagination-controls>-->
+    <!--</div>-->
+</div>

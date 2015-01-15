@@ -1,17 +1,16 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name testApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the testApp
- */
 angular.module('transportApp')
     .controller('MainCtrl', ['$scope','TabService',function ($scope, TabService) {
+
+        var that = this;
+        this.theData = null;
         TabService.setTab(1);
 
         $scope.doSomething = function(){
-            console.log(TabService.testFunction());
-        }
+            TabService.testFunction().then(function(result){
+                that.theData = result;
+            });
+        };
+
     }]);

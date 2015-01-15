@@ -11,6 +11,6 @@
  * Controller of the testApp
  */
 angular.module('transportApp')
-    .controller('TransportersCtrl', ['$scope','TabService',function ($scope, TabService) {
+    .controller('DataCtrl', ['$scope','TabService',function ($scope, TabService) {
         TabService.setTab(2);
     }]);

@@ -1,6 +1,6 @@
 <?php
 
-class TransporterController extends \BaseController {
+class CityController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,8 @@ class TransporterController extends \BaseController {
 	 */
 	public function index()
 	{
-		$transporters = Transporter::orderBy('id', 'DESC')->get();
-		return $transporters;
+		$cities = City::orderBy('id', 'DESC')->get();
+		return $cities;
 	}
 
 
@@ -21,7 +21,7 @@ class TransporterController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+
 	}
 
 
@@ -32,16 +32,15 @@ class TransporterController extends \BaseController {
 	 */
 	public function store()
 	{
-		$transporter = Transporter::create(array(
-			'name' => Input::get('name'),
-			'phone' => Input::get('phone')
+		$city = City::create(array(
+			'name' => Input::get('name')
 		));
 
-		if($transporter){
-			return $transporter->id;
+		if($city){
+			return $city->id;
 		}
 		else {
-			return Response::json(['message'=>'Error while saving new transporter']);
+			return Response::json(['message'=>'Error while saving new city']);
 		}
 	}
 
@@ -90,12 +89,12 @@ class TransporterController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$transporter = Transporter::find($id);
+		$city = City::find($id);
 
-		if(!$transporter)
+		if(!$city)
 			return false;
 
-		$transporter->delete();
+		$city->delete();
 	}
 
 

@@ -1,7 +1,8 @@
 angular
     .module('transportApp', [
         'ngRoute',
-        'ngSanitize'
+        'ngSanitize',
+        'angularUtils.directives.dirPagination'
     ], function($interpolateProvider){
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');
@@ -12,13 +13,13 @@ angular
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
-            .when('/transporters', {
-                templateUrl: 'views/transporters.html',
-                controller: 'TransportersCtrl'
+            .when('/data', {
+                templateUrl: 'views/data.html',
+                controller: 'DataCtrl'
             })
-            .when('/destinations', {
-                templateUrl: 'views/destinations.html',
-                controller: 'DestinationsCtrl'
+            .when('/routes', {
+                templateUrl: 'views/routes.html',
+                controller: 'RoutesCtrl'
             })
             .otherwise({
                 redirectTo: '/'

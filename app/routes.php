@@ -48,6 +48,7 @@ Route::group(array('before'=>'auth'), function(){
 
 		Route::resource('transporter', 'TransporterController');
 		Route::resource('destination', 'DestinationController');
+		Route::resource('city', 'CityController');
 
 	});
 

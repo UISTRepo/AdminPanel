@@ -1,0 +1,95 @@
+
+<div class="row">
+    <div class="col-md-offset-4 col-md-4 text-center"><h3>Trips</h3></div>
+    <div class="col-md-4 text-right">
+        <h3>
+            <button class="btn btn-primary" ng-click="visible=!visible">
+                <i class="glyphicon glyphicon-plus"></i>&nbsp; Add new trip
+            </button>
+        </h3>
+    </div>
+</div>
+<div ng-show="visible">
+    <hr/>
+    <form class="form-horizontal" role="form" name="tripForm" ng-submit="newTrip()">
+        <div class="row">
+            <div class="col-md-2 text-center">
+                <!--<label for="city" class="control-label">City</label>-->
+                <select required ng-model="cityId" class="form-control" >
+                    <option value="" > -- City -- </option>
+                    <option value="<%city.id%>" ng-repeat="city in cities"><%city.name%></option>
+                </select>
+            </div>
+            <div class="col-md-3 text-center">
+                <!--<label for="city" class="control-label ">Transporter</label>-->
+                <select required ng-model="transporterId" class="form-control" >
+                    <option value="" > -- Transporter -- </option>
+                    <option value="<%transporter.id%>" ng-repeat="transporter in transporters"><%transporter.name%></option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <input required ng-model="time" ng-minlength="5" ng-maxlength="5" type="text" class="form-control" placeholder="Time"/>
+            </div>
+            <div class="col-md-2">
+                <input required ng-minlength="3" ng-model="price" type="text" class="form-control" placeholder="Price"/>
+            </div>
+            <div class="col-md-2">
+                <input required ng-minlength="1" ng-maxlength="3" ng-model="seats" type="text" class="form-control" placeholder="Seats"/>
+            </div>
+            <div class="col-md-1 text-right">
+                <button ng-disabled="tripForm.$invalid || tripForm.$pristine"
+                        type="submit" class="btn btn-info">Save</button>
+            </div>
+        </div>
+
+    </form>
+    <hr/>
+</div>
+
+
+<div class="form-group row">
+    <div class="col-xs-3 col-xs-offset-2">
+        <label for="searchCity" class="col-xs-2 control-label">City</label>
+        <input ng-model="search.city.name" type="text" name="searchCity" class="form-control" id="searchCity" placeholder="">
+    </div>
+    <div class="col-xs-3">
+        <label for="searchTransp" class="col-xs-2 control-label">Transporter</label>
+        <input ng-model="search.transporter.name" type="text" name="searchCity" class="form-control" id="searchTransp" placeholder="">
+    </div>
+    <div class="col-xs-2">
+        <label class="control-label" for="">Display</label>
+        <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-2 text-center"><strong>City</strong></div>
+            <div class="col-md-3 text-center"><strong>Transporter</strong></div>
+            <div class="col-md-2 text-center"><strong>Time</strong></div>
+            <div class="col-md-2 text-center"><strong>Price</strong></div>
+            <div class="col-md-2 text-center"><strong>Seats</strong></div>
+        </div>
+    </div>
+    <ul class="list-group projectList">
+        <li class="list-group-item"
+            dir-paginate="trip in trips | filter:search | itemsPerPage: pageSize" current-page="currentPage">
+            <div class="row">
+                <div class="col-md-2 text-center"><%trip.city.name%></div>
+                <div class="col-md-3 text-center"><%trip.transporter.name%></div>
+                <div class="col-md-2 text-center"><%trip.time%></div>
+                <div class="col-md-2 text-center"><%trip.price%></div>
+                <div class="col-md-2 text-center"><%trip.seats%></div>
+                <div class="col-md-1 text-right">
+                    <button confirmed-click="deleteTrip(trip.id)" ng-confirm-click
+                            class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="text-center">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"
+                             template-url="bower_components/angular-utils-pagination/dirPagination.tpl.html">
+    </dir-pagination-controls>
+</div>

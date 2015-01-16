@@ -12,6 +12,10 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		 $this->call('UserTableSeeder');
+		 $this->call('CityTableSeeder');
+		 $this->call('TransporterTableSeeder');
+		 $this->call('TripTableSeeder');
+		 $this->call('CityTransporterTableSeeder');
 	}
 
 }

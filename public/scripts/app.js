@@ -17,9 +17,9 @@ angular
                 templateUrl: 'views/data.html',
                 controller: 'DataCtrl'
             })
-            .when('/routes', {
-                templateUrl: 'views/routes.html',
-                controller: 'RoutesCtrl'
+            .when('/trips', {
+                templateUrl: 'views/trips.html',
+                controller: 'TripsCtrl'
             })
             .otherwise({
                 redirectTo: '/'

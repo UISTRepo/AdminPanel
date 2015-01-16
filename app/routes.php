@@ -1,5 +1,25 @@
 <?php
 
+Route::get('/test', function(){
+
+	$transporters = Transporter::all();
+
+	$cities = City::all();
+
+	$trips = Trip::all();
+
+	$filter_trips = Trip::where('transporter_id',1)
+		->where('city_id',2)
+		->orderBy('price','asc')->get();
+
+	return View::make('test')
+		->with('trips', $trips)
+		->with('transporters',$transporters)
+		->with('cities',$cities)
+		->with('filter_trips',$filter_trips);
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -49,6 +69,7 @@ Route::group(array('before'=>'auth'), function(){
 		Route::resource('transporter', 'TransporterController');
 		Route::resource('destination', 'DestinationController');
 		Route::resource('city', 'CityController');
+		Route::resource('trip', 'TripController');
 
 	});
 

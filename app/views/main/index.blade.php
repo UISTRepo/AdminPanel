@@ -7,7 +7,7 @@
         <ul class="nav nav-tabs" role="tablist" id="tabs">
             <li id="ng-tab1" role="presentation" class="active"><a href="#/home">Home</a></li>
             <li id="ng-tab2" role="presentation"><a href="#/data">Data</a></li>
-            <li id="ng-tab3" role="presentation"><a href="#/routes">Routes</a></li>
+            <li id="ng-tab3" role="presentation"><a href="#/trips">Trips</a></li>
         </ul>
         <br/>
         <div ng-view class="theSPA"></div>
@@ -24,7 +24,7 @@
     {{--controllers--}}
     <script src="{{asset('scripts/controllers/main.js')}}"></script>
     <script src="{{asset('scripts/controllers/data.js')}}"></script>
-    <script src="{{asset('scripts/controllers/routes.js')}}"></script>
+    <script src="{{asset('scripts/controllers/trips.js')}}"></script>
 
     {{--directives--}}
     <script src="{{asset('scripts/directives/cities-list.js')}}"></script>
@@ -35,5 +35,6 @@
     <script src="{{asset('scripts/services/TabService.js')}}"></script>
     <script src="{{asset('scripts/services/CityService.js')}}"></script>
     <script src="{{asset('scripts/services/TransporterService.js')}}"></script>
+    <script src="{{asset('scripts/services/TripService.js')}}"></script>
 @stop
 

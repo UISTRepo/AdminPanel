@@ -9,4 +9,10 @@ class City extends Eloquent {
 
     protected $guarded = [];
 
+    public function transporters(){
+
+        return $this->belongsToMany('Transporter');
+        
+    }
+
 }

@@ -14,8 +14,8 @@ class CreateTripsTable extends Migration {
 	{
 		Schema::create('trips', function($table){
 			$table->increments('id');
-			$table->integer('id_city');
-			$table->integer('id_transporter');
+			$table->integer('city_id');
+			$table->integer('transporter_id');
 			$table->string('time',30);
 			$table->integer('seats');
 			$table->integer('price');

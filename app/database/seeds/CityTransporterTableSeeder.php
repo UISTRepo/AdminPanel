@@ -17,7 +17,7 @@ class CityTransporterTableSeeder extends Seeder{
             ),
             array(
                 'city_id'=>4,
-                'transporter_id'=>1
+                'transporter_id'=>2
             ),
             array(
                 'city_id'=>5,

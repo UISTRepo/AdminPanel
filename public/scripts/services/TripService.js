@@ -18,6 +18,12 @@ angular.module('transportApp').service('TripService', ['$http',function($http){
             return $http.get('api/trip').then(function (result) {
                 return result.data;
             })
+        },
+
+        deleteTrip: function(id){
+            return $http.delete('api/trip/' + id).error(function(data, status) {
+                console.log(status);
+            });
         }
 
     }

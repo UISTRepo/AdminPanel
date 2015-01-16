@@ -119,7 +119,30 @@ class TripController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$trip = Trip::find($id);
+
+		if(!$trip)
+			return false;
+
+		$city_id = $trip->city_id;
+		$transporter_id = $trip->transporter_id;
+
+		$trip->delete();
+
+		// check if this is the last trip with city_id and transporter_id
+		// if it is delete the row from city_transporter
+		$results = DB::table('trips')
+			->select('*')
+			->where('city_id',$city_id)
+			->where('transporter_id',$transporter_id)
+			->get();
+
+		if(!$results){
+			DB::table('city_transporter')
+				->where('city_id', $city_id)
+				->where('transporter_id', $transporter_id)
+				->delete();
+		}
 	}
 
 

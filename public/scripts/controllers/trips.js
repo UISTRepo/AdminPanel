@@ -50,7 +50,13 @@ angular.module('transportApp')
             };
 
             $scope.deleteTrip = function(id){
-                console.log(id);
+
+                TripService.deleteTrip(id);
+
+                $scope.trips = $scope.trips.filter(function(jsonObject) {
+                    return jsonObject.id != id;
+                });
+                $scope.$apply();
             }
 
         }]);

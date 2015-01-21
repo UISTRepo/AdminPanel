@@ -16,6 +16,7 @@ class CreateTransportersTable extends Migration {
 			$table->increments('id');
 			$table->string('name',30);
 			$table->string('phone',30);
+			$table->text('image_url');
 			$table->timestamps();
 		});
 	}

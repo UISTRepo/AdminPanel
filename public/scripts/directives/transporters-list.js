@@ -11,7 +11,8 @@
  * Controller of the testApp
  */
 angular.module('transportApp')
-    .directive('transportersList', ['TransporterService', '$sanitize',function(TransporterService, $sanitize){
+    .directive('transportersList', ['TransporterService', '$sanitize',
+        function(TransporterService, $sanitize){
         return {
             restrict: 'E',
             scope: {},

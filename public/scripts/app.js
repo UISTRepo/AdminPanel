@@ -2,7 +2,9 @@ angular
     .module('transportApp', [
         'ngRoute',
         'ngSanitize',
-        'angularUtils.directives.dirPagination'
+        'ngAnimate',
+        'angularUtils.directives.dirPagination',
+        'angularFileUpload'
     ], function($interpolateProvider){
         $interpolateProvider.startSymbol('<%');
         $interpolateProvider.endSymbol('%>');

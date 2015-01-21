@@ -9,8 +9,7 @@
             </h3>
         </div>
     </div>
-    <div ng-show="visible">
-        <hr/>
+    <div ng-show="visible" class="newItem">
         <form class="form-horizontal" role="form" name="transporterForm" ng-submit="newTransporter()">
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Name</label>
@@ -31,7 +30,6 @@
                 </div>
             </div>
         </form>
-        <hr/>
     </div>
     <div class="form-group row">
         <div class="col-xs-9">
@@ -49,14 +47,23 @@
             <li class="list-group-item"
                 dir-paginate="transporter in transporters | filter: query | itemsPerPage: pageSize" current-page="currentPage">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-2">
+                        <image id="transpThumb_<%transporter.id%>" class="transporterThumb" ng-src="<%transporter.image_url%>"></image>
+                    </div>
+                    <div class="col-md-4">
                         <h4><%transporter.name%></h4>
                         <h5 class="text-muted"><%transporter.phone%></h5>
+                    </div>
+                    <div class="col-md-3">
+
                     </div>
                     <div class="col-md-3 text-right">
                         <button confirmed-click="deleteTransporter(transporter.id)" ng-confirm-click
                                 class="btn btn-danger">Delete</button>
                     </div>
+                </div>
+                <div class="row">
+                    <logo-upload transporter-id="transporter.id"></logo-upload>
                 </div>
             </li>
         </ul>

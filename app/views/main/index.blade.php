@@ -15,8 +15,11 @@
 
     <script src="{{asset('bower_components/angular/angular.min.js')}}"></script>
     <script src="{{asset('bower_components/angular-route/angular-route.min.js')}}"></script>
+    <script src="{{asset('bower_components/angular-animate/angular-animate.min.js')}}"></script>
     <script src="{{asset('bower_components/angular-sanitize/angular-sanitize.min.js')}}"></script>
     <script src="{{asset('bower_components/angular-utils-pagination/dirPagination.js')}}"></script>
+    <script src="{{asset('bower_components/ng-file-upload-shim/angular-file-upload-shim.min.js')}}"></script>
+    <script src="{{asset('bower_components/ng-file-upload/angular-file-upload.min.js')}}"></script>
 
     {{--config file--}}
     <script src="{{asset('scripts/app.js')}}"></script>
@@ -30,6 +33,7 @@
     <script src="{{asset('scripts/directives/cities-list.js')}}"></script>
     <script src="{{asset('scripts/directives/transporters-list.js')}}"></script>
     <script src="{{asset('scripts/directives/ng-confirm-click.js')}}"></script>
+    <script src="{{asset('scripts/directives/logo-upload.js')}}"></script>
 
     {{--services--}}
     <script src="{{asset('scripts/services/TabService.js')}}"></script>

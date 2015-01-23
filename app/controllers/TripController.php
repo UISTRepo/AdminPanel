@@ -14,8 +14,8 @@ class TripController extends \BaseController {
 		$i = 0;
 
 		foreach($trips as $trip){
-			$trips[$i]['city'] = $trip->city->name;
-			$trips[$i]['transporter'] = $trip->transporter->name;
+			$trips[$i]['city'] = $trip->city;
+			$trips[$i]['transporter'] = $trip->transporter;
 			$i++;
 		}
 
@@ -83,7 +83,19 @@ class TripController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		// show trips to specific city
+		$trips = Trip::where('city_id',$id)
+			->orderBy('id', 'DESC')->get();
+
+		$i = 0;
+
+		foreach($trips as $trip){
+			$trips[$i]['city'] = $trip->city;
+			$trips[$i]['transporter'] = $trip->transporter;
+			$i++;
+		}
+
+		return Response::json($trips);
 	}
 
 

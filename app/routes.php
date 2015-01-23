@@ -62,16 +62,19 @@ Route::get('/main', array(
 
 /* ----- API for XXX ----- */
 
+Route::group(['prefix' => 'api'], function(){
+
+	Route::resource('transporter', 'TransporterController');
+	Route::resource('destination', 'DestinationController');
+	Route::resource('city', 'CityController');
+	Route::resource('trip', 'TripController');
+	Route::resource('image', 'ImageController');
+
+});
+
+// if api is here is not accessible to the outside world :)
 Route::group(array('before'=>'auth'), function(){
 
-	Route::group(['prefix' => 'api'], function(){
 
-		Route::resource('transporter', 'TransporterController');
-		Route::resource('destination', 'DestinationController');
-		Route::resource('city', 'CityController');
-		Route::resource('trip', 'TripController');
-		Route::resource('image', 'ImageController');
-
-	});
 
 });

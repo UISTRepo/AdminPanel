@@ -2,6 +2,7 @@
 
 class CityController extends \BaseController {
 
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -53,7 +54,15 @@ class CityController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$city = City::find($id);
+
+		$i=0;
+		foreach($city->transporters as $transporter){
+			$city['transporters'][$i] = $transporter;
+			$i++;
+		}
+
+		return Response::json($city);
 	}
 
 

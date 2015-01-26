@@ -62,6 +62,12 @@ Route::get('/main', array(
 
 /* ----- API for XXX ----- */
 
+// Get Cities by name
+Route::get('/cities/{name}', array(
+	'as'=>'filterCities',
+	'uses'=>'HomeController@getCitiesByName'
+));
+
 Route::group(['prefix' => 'api'], function(){
 
 	Route::resource('transporter', 'TransporterController');

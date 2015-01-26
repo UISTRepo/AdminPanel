@@ -11,4 +11,12 @@ class HomeController extends BaseController{
         return View::make('main.index');
     }
 
+    public function getCitiesByName($name){
+
+        $results = City::where('name', 'LIKE', '%'.$name.'%')->take(20)->get();
+
+        return Response::json($results);
+
+    }
+
 }

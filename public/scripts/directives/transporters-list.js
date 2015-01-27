@@ -33,7 +33,8 @@ angular.module('transportApp')
 
                     var transporter = {
                         'name' : $sanitize(scope.data.name),
-                        'phone' : $sanitize(scope.data.phone)
+                        'phone' : $sanitize(scope.data.phone),
+                        'info' : $sanitize(scope.data.info)
                     };
                     TransporterService.addTransporter(transporter).then(function(data){
                         transporter.id = data;
@@ -41,6 +42,7 @@ angular.module('transportApp')
                     scope.transporters.unshift(transporter);
                     scope.data.name = "";
                     scope.data.phone = "";
+                    scope.data.info = "";
                 };
 
                 scope.deleteTransporter = function (id) {

@@ -34,7 +34,8 @@ class TransporterController extends \BaseController {
 	{
 		$transporter = Transporter::create(array(
 			'name' => Input::get('name'),
-			'phone' => Input::get('phone')
+			'phone' => Input::get('phone'),
+			'info' => Input::get('info')
 		));
 
 		if($transporter){
@@ -54,7 +55,13 @@ class TransporterController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+
+		$transporter = Transporter::find($id);
+
+		$transporter->cities;
+
+		return Response::json($transporter);
+
 	}
 
 

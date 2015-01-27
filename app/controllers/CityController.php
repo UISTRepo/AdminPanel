@@ -56,11 +56,7 @@ class CityController extends \BaseController {
 	{
 		$city = City::find($id);
 
-		$i=0;
-		foreach($city->transporters as $transporter){
-			$city['transporters'][$i] = $transporter;
-			$i++;
-		}
+		$city->transporters;
 
 		return Response::json($city);
 	}

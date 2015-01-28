@@ -10,7 +10,7 @@ class CityController extends \BaseController {
 	 */
 	public function index()
 	{
-		$cities = City::orderBy('id', 'DESC')->get();
+		$cities = City::orderBy('name', 'ASC')->get();
 		return $cities;
 	}
 

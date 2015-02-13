@@ -2,6 +2,12 @@
 
 class CityController extends \BaseController {
 
+	function __construct()
+	{
+
+		$this->beforeFilter('auth.basic',['on'=>['post','put','delete']]);
+
+	}
 
 	/**
 	 * Display a listing of the resource.

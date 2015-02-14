@@ -10,4 +10,4 @@ Thumbs.db
 /public/node_modules
 _ide_helper.php
 .idea/
-/app/config/local/database.php
+app/config/local/database.php

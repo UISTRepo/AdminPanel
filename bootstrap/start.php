@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('tunte-MINT3'),
+	'local' => array('tunte-MINT3','ip-172-31-10-30'),
 
 ));
 
